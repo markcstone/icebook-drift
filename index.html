@@ -127,7 +127,7 @@
       },
       layers: [{ id: 'esri', type: 'raster', source: 'esri' }],
     },
-    bounds, fitBoundsOptions: { padding: 60 }, bearing: 180, attributionControl: { compact: true },
+    bounds, fitBoundsOptions: { padding: 60, bearing: 180 }, bearing: 180, attributionControl: { compact: true },
   });
   // North is down: the creek flows north, so scrolling down the page moves down the river.
   map.dragRotate.disable(); map.touchZoomRotate.disableRotation(); map.keyboard.disableRotation();
