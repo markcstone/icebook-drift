@@ -1,19 +1,6 @@
 [
  {
   "n": 1,
-  "photo": "photos/Image_3.jpg",
-  "title": "The team, before launch",
-  "caption": "The field crew with the Icebook before it went in. Names to add.",
-  "time_local": "",
-  "along_m": null,
-  "lat": 40.77062,
-  "lon": -96.718259,
-  "source": "none",
-  "camera": "iPhone",
-  "track_index": null
- },
- {
-  "n": 2,
   "photo": "photos/Image_5.jpg",
   "title": "The block on the bank",
   "caption": "Icebook on the bank at the launch site, instrument housing on top, ready to go.",
@@ -26,7 +13,7 @@
   "track_index": null
  },
  {
-  "n": 3,
+  "n": 2,
   "photo": "photos/IMG_8820.jpg",
   "title": "Launch",
   "caption": "In the water just above the Pioneers Boulevard bridge, 4:33 pm. Foam and woody debris on a turbid flow.",
@@ -39,7 +26,7 @@
   "track_index": 17
  },
  {
-  "n": 4,
+  "n": 3,
   "photo": "photos/IMG_8821.jpg",
   "title": "Under way",
   "caption": "Three seconds later, the block clears the snag and takes the current.",
@@ -52,7 +39,7 @@
   "track_index": 17
  },
  {
-  "n": 5,
+  "n": 4,
   "photo": "photos/photo_20261106-163249.jpg",
   "title": "What the block saw first",
   "caption": "The onboard camera looks back at the crew on the bank, poles in hand, the bridge behind them.",
@@ -65,7 +52,7 @@
   "track_index": 11
  },
  {
-  "n": 6,
+  "n": 5,
   "photo": "photos/photo_20261106-164138.jpg",
   "title": "Leaving the launch reach",
   "caption": "Nine minutes in. Fallen timber on the left bank, a crew member following along the shore.",
@@ -78,7 +65,7 @@
   "track_index": 126
  },
  {
-  "n": 7,
+  "n": 6,
   "photo": "photos/photo_20261106-165054.jpg",
   "title": "Into the bend",
   "caption": "Nineteen minutes in and 280 meters downstream. The bank steepens; the bridge is still visible behind.",
@@ -91,7 +78,7 @@
   "track_index": 180
  },
  {
-  "n": 8,
+  "n": 7,
   "photo": "photos/photo_20261106-165258.jpg",
   "title": "Under the trees",
   "caption": "Bare cottonwoods overhead at 350 meters. The creek narrows and the block speeds up.",
@@ -104,7 +91,7 @@
   "track_index": 190
  },
  {
-  "n": 9,
+  "n": 8,
   "photo": "photos/photo_20261106-170338.jpg",
   "title": "The west bend",
   "caption": "The westernmost point of the drift, 620 meters along. A slumped bank and grass to the waterline.",
@@ -117,7 +104,7 @@
   "track_index": 243
  },
  {
-  "n": 10,
+  "n": 9,
   "photo": "photos/photo_20261106-170802.jpg",
   "title": "The slow water",
   "caption": "The block enters a slow stretch: the next five frames cover eighty meters in four minutes.",
@@ -130,7 +117,7 @@
   "track_index": 265
  },
  {
-  "n": 11,
+  "n": 10,
   "photo": "photos/photo_20261106-170903.jpg",
   "title": "Drifting",
   "caption": "Grassy bank, gray sky. The camera sits a few centimeters above the water.",
@@ -143,7 +130,7 @@
   "track_index": 270
  },
  {
-  "n": 12,
+  "n": 11,
   "photo": "photos/photo_20261106-171051.jpg",
   "title": "Cutbank",
   "caption": "An eroding bank with exposed roots on the outside of the bend.",
@@ -156,7 +143,7 @@
   "track_index": 279
  },
  {
-  "n": 13,
+  "n": 12,
   "photo": "photos/photo_20261106-171139.jpg",
   "title": "Still turning",
   "caption": "775 meters along. The block rotates as it drifts, so the view swings from bank to bank.",
@@ -169,7 +156,7 @@
   "track_index": 283
  },
  {
-  "n": 14,
+  "n": 13,
   "photo": "photos/photo_20261106-171227.jpg",
   "title": "Beneath a log",
   "caption": "A fallen trunk overhead as the block passes the bend.",
@@ -182,7 +169,7 @@
   "track_index": 287
  },
  {
-  "n": 15,
+  "n": 14,
   "photo": "photos/photo_20261106-171339.jpg",
   "title": "Toward the take-out",
   "caption": "Rock and root along the bank at 844 meters.",
@@ -195,7 +182,7 @@
   "track_index": 293
  },
  {
-  "n": 16,
+  "n": 15,
   "photo": "photos/photo_20261106-171914.jpg",
   "title": "Last frame from the water",
   "caption": "The final picked frame, 881 meters along and seven minutes before the trip log ends. Haze on the lens by now.",
@@ -208,7 +195,7 @@
   "track_index": 321
  },
  {
-  "n": 17,
+  "n": 16,
   "photo": "photos/IMG_8832.jpg",
   "title": "Recovery",
   "caption": "Out of the water and on the bench, 5:29 pm, 40 meters from the end of the track. 393 fixes, 250 photos, 0.59 miles.",
@@ -217,6 +204,19 @@
   "lat": 40.775508,
   "lon": -96.716339,
   "source": "EXIF",
+  "camera": "iPhone",
+  "track_index": 392
+ },
+ {
+  "n": 17,
+  "photo": "photos/Image_3.jpg",
+  "title": "The team, after recovery",
+  "caption": "The field crew with the Icebook back out of the water at the end of the drift. Names to add.",
+  "time_local": "",
+  "along_m": null,
+  "lat": 40.775508,
+  "lon": -96.716339,
+  "source": "none",
   "camera": "iPhone",
   "track_index": 392
  }
