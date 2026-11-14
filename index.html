@@ -27,19 +27,19 @@
   .stats { display: flex; flex-wrap: wrap; gap: 10px 28px; color: var(--muted); font-size: 15px; }
   .stats b { color: var(--ink); font-weight: 600; }
 
-  .story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 520px); gap: 0; max-width: 1400px; margin: 0 auto; }
+  .story { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(0, 2fr); gap: 0; max-width: 1600px; margin: 0 auto; }
   .map-wrap { position: sticky; top: 0; height: 100vh; height: 100dvh; }
   #map { width: 100%; height: 100%; background: #0b0f14; }
   .map-badge { position: absolute; left: 12px; top: 12px; background: rgba(20,22,24,.78); color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 13px; backdrop-filter: blur(4px); z-index: 2; }
-  .steps { padding: 20vh 24px 40vh; }
+  .steps { padding: 20vh 32px 40vh; max-width: 1000px; }
   .step { margin: 0 0 55vh; opacity: .35; transition: opacity .35s ease; }
   .step.active { opacity: 1; }
   .step figure { margin: 0; background: var(--card); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,.08); }
   .step img { display: block; width: 100%; height: auto; cursor: zoom-in; }
   .step figcaption { padding: 14px 16px 16px; }
   .step .kicker { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
-  .step h2 { font-size: 22px; margin: 0 0 6px; line-height: 1.2; }
-  .step p { margin: 0; font-size: 16px; }
+  .step h2 { font-size: 24px; margin: 0 0 6px; line-height: 1.2; }
+  .step p { margin: 0; font-size: 17px; }
   .step .meta { margin-top: 10px; font-size: 13px; color: var(--muted); }
   .step.intro figure { padding: 18px 18px 6px; }
   .step.intro h2 { font-size: 26px; }
