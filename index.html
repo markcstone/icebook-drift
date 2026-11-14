@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icebook on Salt Creek</title>
+<meta name="description" content="A 55 minute drift of the Icebook instrumented ice block down Salt Creek, Lincoln, Nebraska, on 6 November 2026, told by its GPS track and the photos it took.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.24.0/maplibre-gl.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.24.0/maplibre-gl.min.js"></script>
+<style>
+  :root {
+    --bg: #f6f4ef; --ink: #1d1f22; --muted: #6b6f76; --rule: #e1ddd3; --accent: #1f6fb2; --card: #ffffff;
+    --marker: #f2a93b; --marker-on: #ff5c38; --track: #4aa3ff; --track-done: #ffd166;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #141618; --ink: #ecebe6; --muted: #9a9ea6; --rule: #2a2e33; --card: #1c1f23; --accent: #6db3ff; }
+  }
+  :root[data-theme="dark"] { --bg: #141618; --ink: #ecebe6; --muted: #9a9ea6; --rule: #2a2e33; --card: #1c1f23; --accent: #6db3ff; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 -apple-system, "Inter", "Helvetica Neue", Segoe UI, sans-serif; }
+  a { color: var(--accent); }
+
+  header.hero { padding: 56px 24px 28px; max-width: 1100px; margin: 0 auto; }
+  header.hero h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.05; margin: 0 0 12px; letter-spacing: -0.01em; }
+  header.hero p.lede { font-size: 20px; max-width: 760px; margin: 0 0 18px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 10px 28px; color: var(--muted); font-size: 15px; }
+  .stats b { color: var(--ink); font-weight: 600; }
+
+  .story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 520px); gap: 0; max-width: 1400px; margin: 0 auto; }
+  .map-wrap { position: sticky; top: 0; height: 100vh; height: 100dvh; }
+  #map { width: 100%; height: 100%; background: #0b0f14; }
+  .map-badge { position: absolute; left: 12px; top: 12px; background: rgba(20,22,24,.78); color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 13px; backdrop-filter: blur(4px); z-index: 2; }
+  .steps { padding: 20vh 24px 40vh; }
+  .step { margin: 0 0 55vh; opacity: .35; transition: opacity .35s ease; }
+  .step.active { opacity: 1; }
+  .step figure { margin: 0; background: var(--card); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,.08); }
+  .step img { display: block; width: 100%; height: auto; cursor: zoom-in; }
+  .step figcaption { padding: 14px 16px 16px; }
+  .step .kicker { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+  .step h2 { font-size: 22px; margin: 0 0 6px; line-height: 1.2; }
+  .step p { margin: 0; font-size: 16px; }
+  .step .meta { margin-top: 10px; font-size: 13px; color: var(--muted); }
+  .step.intro figure { padding: 18px 18px 6px; }
+  .step.intro h2 { font-size: 26px; }
+
+  .end { max-width: 1100px; margin: 0 auto; padding: 24px 24px 80px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin: 18px 0 26px; }
+  .grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 6px; cursor: zoom-in; display: block; }
+
+  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; z-index: 50; cursor: zoom-out; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 96vw; max-height: 92vh; object-fit: contain; }
+  .lightbox .cap { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; color: #ddd; font-size: 14px; }
+
+  .maplibregl-marker { cursor: pointer; }
+  .pin { width: 14px; height: 14px; border-radius: 50%; background: var(--marker); border: 2px solid #fff; box-shadow: 0 0 0 2px rgba(0,0,0,.35); transition: transform .2s; }
+  .pin.on { background: var(--marker-on); transform: scale(1.6); z-index: 3; }
+  .pin.phone { border-radius: 3px; }
+
+  @media (max-width: 900px) {
+    .story { grid-template-columns: 1fr; }
+    .map-wrap { height: 46vh; height: 46dvh; z-index: 1; }
+    .steps { padding: 20px 16px 30vh; }
+    .step { margin-bottom: 40vh; }
+    header.hero { padding: 36px 16px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .step { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Icebook on Salt Creek</h1>
+  <p class="lede">On the afternoon of 6 November 2026 we put an instrumented block of ice into Salt Creek in Lincoln, Nebraska, and let the current take it. This page follows the 55 minute drift through the block's own GPS track and the photographs it took along the way.</p>
+  <div class="stats" id="stats"></div>
+</header>
+
+<section class="story">
+  <div class="map-wrap">
+    <div id="map"></div>
+    <div class="map-badge" id="badge">Salt Creek, Lincoln NE</div>
+  </div>
+  <div class="steps" id="steps"></div>
+</section>
+
+<section class="end">
+  <p><strong>All photographs.</strong> Click any to enlarge.</p>
+  <div class="grid" id="grid"></div>
+  <p>Track: Icebook onboard GPS, 393 fixes at about 8 second intervals, 6 November 2026, 16:31 to 17:26 Central. Photos from the Icebook camera are placed on the track by capture time; phone photos carry their own position. Photos were tone adjusted for consistency between the two cameras; nothing was added or removed. Imagery: Esri World Imagery (Esri, Maxar, Earthstar Geographics, and the GIS User Community). Map: MapLibre GL JS.</p>
+  <p>PRAIRIE, University of Nebraska-Lincoln.</p>
+</section>
+
+<div class="lightbox" id="lightbox"><img id="lbimg" alt=""><div class="cap" id="lbcap"></div></div>
+
+<script>
+(async function () {
+  const [steps, track] = await Promise.all([
+    fetch('data/steps.json').then(r => r.json()),
+    fetch('data/track.geojson').then(r => r.json()),
+  ]);
+  const line = track.features[0];
+  const coords = line.geometry.coordinates;
+  const bounds = coords.reduce((b, c) => b.extend(c), new maplibregl.LngLatBounds(coords[0], coords[0]));
+
+  // Stats line
+  const dur = (new Date(line.properties.end_utc) - new Date(line.properties.start_utc)) / 60000;
+  document.getElementById('stats').innerHTML =
+    `<span><b>${(line.properties.distance_m / 1609.34).toFixed(2)} mi</b> drifted</span>` +
+    `<span><b>${Math.round(dur)} min</b> in the water</span>` +
+    `<span><b>${line.properties.fixes}</b> GPS fixes</span>` +
+    `<span><b>${steps.length}</b> photographs</span>`;
+
+  // Map with satellite imagery
+  const map = new maplibregl.Map({
+    container: 'map',
+    style: {
+      version: 8,
+      sources: {
+        esri: {
+          type: 'raster', tileSize: 256, maxzoom: 19,
+          tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],
+          attribution: 'Imagery: Esri, Maxar, Earthstar Geographics, and the GIS User Community',
+        },
+      },
+      layers: [{ id: 'esri', type: 'raster', source: 'esri' }],
+    },
+    bounds, fitBoundsOptions: { padding: 60 }, attributionControl: { compact: true },
+  });
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+  map.scrollZoom.disable();
+
+  map.on('load', () => {
+    map.addSource('track', { type: 'geojson', data: track });
+    map.addLayer({ id: 'track-casing', type: 'line', source: 'track', paint: { 'line-color': '#000', 'line-width': 6, 'line-opacity': .45 }, layout: { 'line-cap': 'round', 'line-join': 'round' } });
+    map.addLayer({ id: 'track', type: 'line', source: 'track', paint: { 'line-color': '#4aa3ff', 'line-width': 3 }, layout: { 'line-cap': 'round', 'line-join': 'round' } });
+    map.addSource('done', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+    map.addLayer({ id: 'done', type: 'line', source: 'done', paint: { 'line-color': '#ffd166', 'line-width': 4 }, layout: { 'line-cap': 'round', 'line-join': 'round' } });
+    for (const [c, label, color] of [[coords[0], 'A', '#2ecc71'], [coords[coords.length - 1], 'B', '#e74c3c']]) {
+      const el = document.createElement('div');
+      el.style.cssText = `width:24px;height:24px;border-radius:50%;background:${color};border:2px solid #fff;color:#111;font:700 13px/20px sans-serif;text-align:center;box-shadow:0 0 0 2px rgba(0,0,0,.4)`;
+      el.textContent = label;
+      new maplibregl.Marker({ element: el }).setLngLat(c).addTo(map);
+    }
+  });
+
+  // Steps and markers
+  const stepsEl = document.getElementById('steps');
+  const grid = document.getElementById('grid');
+  const markers = [];
+  const intro = document.createElement('article');
+  intro.className = 'step intro active';
+  intro.innerHTML = `<figure><figcaption><div class="kicker">The drift</div><h2>Launch at A, recovery at B</h2>
+    <p>The yellow line fills in as the block moves downstream. Scroll to follow it. Each photograph sits on the map where it was taken.</p></figcaption></figure>`;
+  stepsEl.appendChild(intro);
+
+  steps.forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'pin' + (s.camera === 'iPhone' ? ' phone' : '');
+    el.title = `${s.n}. ${s.title}`;
+    const m = new maplibregl.Marker({ element: el }).setLngLat([s.lon, s.lat]).addTo(map);
+    el.addEventListener('click', () => document.getElementById('step-' + s.n).scrollIntoView({ behavior: 'smooth', block: 'center' }));
+    markers.push(el);
+
+    const art = document.createElement('article');
+    art.className = 'step'; art.id = 'step-' + s.n; art.dataset.i = i;
+    const meta = [s.time_local ? s.time_local.slice(0, 5) + ' Central' : null, s.along_m != null ? s.along_m + ' m along the creek' : null, s.camera].filter(Boolean).join(' · ');
+    art.innerHTML = `<figure><img src="${s.photo}" alt="${s.title}" loading="lazy" data-cap="${s.n}. ${s.title}">
+      <figcaption><div class="kicker">${String(s.n).padStart(2, '0')} of ${steps.length}</div><h2>${s.title}</h2><p>${s.caption}</p><div class="meta">${meta}</div></figcaption></figure>`;
+    stepsEl.appendChild(art);
+
+    const g = document.createElement('img'); g.src = s.photo; g.alt = s.title; g.loading = 'lazy'; g.dataset.cap = `${s.n}. ${s.title}`;
+    grid.appendChild(g);
+  });
+
+  function activate(i) {
+    document.querySelectorAll('.step').forEach(e => e.classList.remove('active'));
+    markers.forEach(m => m.classList.remove('on'));
+    if (i < 0) {
+      intro.classList.add('active');
+      map.fitBounds(bounds, { padding: 60, duration: 1200 });
+      if (map.getSource('done')) map.getSource('done').setData({ type: 'FeatureCollection', features: [] });
+      document.getElementById('badge').textContent = 'Salt Creek, Lincoln NE';
+      return;
+    }
+    const s = steps[i];
+    document.getElementById('step-' + s.n).classList.add('active');
+    markers[i].classList.add('on');
+    map.flyTo({ center: [s.lon, s.lat], zoom: 18.2, duration: 1400, essential: true });
+    const done = s.track_index != null ? coords.slice(0, s.track_index + 1) : [];
+    if (map.getSource('done')) map.getSource('done').setData({ type: 'FeatureCollection', features: done.length > 1 ? [{ type: 'Feature', geometry: { type: 'LineString', coordinates: done } }] : [] });
+    document.getElementById('badge').textContent = `${s.n}. ${s.title}` + (s.time_local ? ` · ${s.time_local.slice(0, 5)}` : '');
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) activate(e.target.dataset.i === undefined ? -1 : +e.target.dataset.i); });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+  document.querySelectorAll('.step').forEach(e => io.observe(e));
+
+  // Lightbox
+  const lb = document.getElementById('lightbox'), lbimg = document.getElementById('lbimg'), lbcap = document.getElementById('lbcap');
+  document.addEventListener('click', e => {
+    const t = e.target;
+    if (t.tagName === 'IMG' && t.dataset.cap) { lbimg.src = t.src; lbimg.alt = t.alt; lbcap.textContent = t.dataset.cap; lb.classList.add('open'); }
+    else if (t === lb || t === lbimg) lb.classList.remove('open');
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+})();
+</script>
+</body>
+</html>

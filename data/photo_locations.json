@@ -1,0 +1,189 @@
+[
+ {
+  "photo": "IMG_8820.jpg",
+  "camera": "Apple",
+  "time_local": "16:33:49",
+  "time_utc": "22:33:49",
+  "latitude": "40.770639",
+  "longitude": "-96.718164",
+  "along_track_m": "26",
+  "source": "EXIF",
+  "note": ""
+ },
+ {
+  "photo": "IMG_8821.jpg",
+  "camera": "Apple",
+  "time_local": "16:33:52",
+  "time_utc": "22:33:52",
+  "latitude": "40.770608",
+  "longitude": "-96.718208",
+  "along_track_m": "27",
+  "source": "EXIF",
+  "note": ""
+ },
+ {
+  "photo": "IMG_8832.jpg",
+  "camera": "Apple",
+  "time_local": "17:28:59",
+  "time_utc": "23:28:59",
+  "latitude": "40.775508",
+  "longitude": "-96.716339",
+  "along_track_m": "",
+  "source": "EXIF",
+  "note": "outside trip window; position from phone"
+ },
+ {
+  "photo": "Image (3).jpg",
+  "camera": "",
+  "time_local": "",
+  "time_utc": "",
+  "latitude": "",
+  "longitude": "",
+  "along_track_m": "",
+  "source": "none",
+  "note": "no timestamp in file"
+ },
+ {
+  "photo": "Image (5).jpg",
+  "camera": "",
+  "time_local": "",
+  "time_utc": "",
+  "latitude": "",
+  "longitude": "",
+  "along_track_m": "",
+  "source": "none",
+  "note": "no timestamp in file"
+ },
+ {
+  "photo": "photo_20261106-163249.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "16:32:56",
+  "time_utc": "22:32:56",
+  "latitude": "40.770620",
+  "longitude": "-96.718259",
+  "along_track_m": "15",
+  "source": "track",
+  "note": "nearest fix 1.8 s away"
+ },
+ {
+  "photo": "photo_20261106-164138.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "16:41:45",
+  "time_utc": "22:41:45",
+  "latitude": "40.770859",
+  "longitude": "-96.718135",
+  "along_track_m": "62",
+  "source": "track",
+  "note": "nearest fix 2.4 s away"
+ },
+ {
+  "photo": "photo_20261106-165054.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "16:51:01",
+  "time_utc": "22:51:01",
+  "latitude": "40.772487",
+  "longitude": "-96.716987",
+  "along_track_m": "280",
+  "source": "track",
+  "note": "nearest fix 2.8 s away"
+ },
+ {
+  "photo": "photo_20261106-165258.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "16:53:05",
+  "time_utc": "22:53:05",
+  "latitude": "40.772992",
+  "longitude": "-96.717479",
+  "along_track_m": "351",
+  "source": "track",
+  "note": "nearest fix 3.0 s away"
+ },
+ {
+  "photo": "photo_20261106-170338.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "17:03:45",
+  "time_utc": "23:03:45",
+  "latitude": "40.774780",
+  "longitude": "-96.718712",
+  "along_track_m": "620",
+  "source": "track",
+  "note": "nearest fix 2.6 s away"
+ },
+ {
+  "photo": "photo_20261106-170802.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "17:08:09",
+  "time_utc": "23:08:09",
+  "latitude": "40.774504",
+  "longitude": "-96.717788",
+  "along_track_m": "719",
+  "source": "track",
+  "note": "nearest fix 2.9 s away"
+ },
+ {
+  "photo": "photo_20261106-170903.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "17:09:10",
+  "time_utc": "23:09:10",
+  "latitude": "40.774473",
+  "longitude": "-96.717459",
+  "along_track_m": "752",
+  "source": "track",
+  "note": "nearest fix 2.6 s away"
+ },
+ {
+  "photo": "photo_20261106-171051.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "17:10:58",
+  "time_utc": "23:10:58",
+  "latitude": "40.774427",
+  "longitude": "-96.717303",
+  "along_track_m": "768",
+  "source": "track",
+  "note": "nearest fix 3.1 s away"
+ },
+ {
+  "photo": "photo_20261106-171139.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "17:11:46",
+  "time_utc": "23:11:46",
+  "latitude": "40.774438",
+  "longitude": "-96.717220",
+  "along_track_m": "775",
+  "source": "track",
+  "note": "nearest fix 3.5 s away"
+ },
+ {
+  "photo": "photo_20261106-171227.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "17:12:34",
+  "time_utc": "23:12:34",
+  "latitude": "40.774563",
+  "longitude": "-96.717016",
+  "along_track_m": "797",
+  "source": "track",
+  "note": "nearest fix 3.0 s away"
+ },
+ {
+  "photo": "photo_20261106-171339.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "17:13:46",
+  "time_utc": "23:13:46",
+  "latitude": "40.774823",
+  "longitude": "-96.716588",
+  "along_track_m": "844",
+  "source": "track",
+  "note": "nearest fix 3.3 s away"
+ },
+ {
+  "photo": "photo_20261106-171914.jpg",
+  "camera": "Raspberry Pi",
+  "time_local": "17:19:21",
+  "time_utc": "23:19:21",
+  "latitude": "40.775084",
+  "longitude": "-96.716373",
+  "along_track_m": "881",
+  "source": "track",
+  "note": "nearest fix 2.7 s away"
+ }
+]
